@@ -36,6 +36,10 @@ let humanChoice = () => {
 console.log(humanChoice());
 
 /* 4. Keep track of Player Score using variables. */
+
+let playerScore = 0;
+let computerScore = 0;
+
 /* 5. Write the logic and play a single round. */
 /* 6. Write the logic and play 5 rounds. */
 
