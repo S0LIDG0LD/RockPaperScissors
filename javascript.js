@@ -17,9 +17,23 @@ console.log(computerChoice());
 /* 3. Create function getHumanChoice that will return one of the valid inputs from user. */
 
 let humanChoice = () => {
-    let humanInpute = parseString(prompt("Please enter Rock, Paper or Scissors: "));
 
-for (let i = 1; i <= answer; i++) {
+    while (1) {
+    
+        let humanInput = String(prompt("Please enter Rock, Paper or Scissors: "));
+
+        console.log(humanInput);
+
+        switch (humanInput.toLowerCase()) {
+            case "rock" : return "Rock";
+            case "paper" : return "Paper";
+            case "scissors" : return "Scissors";
+            default : break;
+        }
+    }
+}
+
+console.log(humanChoice());
 
 /* 4. Keep track of Player Score using variables. */
 /* 5. Write the logic and play a single round. */
