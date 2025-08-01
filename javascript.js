@@ -46,6 +46,7 @@ console.log("Computer Score: " + computerScore);
 
 function playRound(humanChoice, computerChoice) {
 
+    let result = "";
     if (humanChoice !== computerChoice) {
         if (humanChoice === "Rock") {
             if (computerChoice === "Paper") {
@@ -72,22 +73,31 @@ function playRound(humanChoice, computerChoice) {
             }
         }
 
-        alert(humanScore > computerScore ? (
+        // alert(humanScore > computerScore ? (
+        // "I picked " + computerChoice + ", YOU WON!") : (
+        // "I picked " + computerChoice + ", YOU LOOSE!")
+        // );
+        result = (humanScore > computerScore ? (
         "I picked " + computerChoice + ", YOU WON!") : (
         "I picked " + computerChoice + ", YOU LOOSE!")
         );
     } else if (humanChoice === computerChoice) {
-        alert("AAAARGHH! We both picked " + humanChoice); 
+        // alert("AAAARGHH! We both picked " + humanChoice); 
+        result = "AAAARGHH! We both picked " + humanChoice;
     }
+    return result;
 };
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
 
-console.log("computerSelection: " + computerSelection);
-console.log("humanSelection: " + humanSelection);
+// console.log("computerSelection: " + computerSelection);
+// console.log("humanSelection: " + humanSelection);
+ 
+/* playRound(humanSelection, computerSelection);
+ */
 
-playRound(humanSelection, computerSelection);
+
 
 /* 6. Write the logic and play 5 rounds. */
 /* 
@@ -115,3 +125,30 @@ if (humanScore > computerScore) {
         alert("GAME OVER, I WON!");
 };
  */
+
+/* 7. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked */
+
+let buttons = document.querySelector('.buttons');
+let result = document.querySelector('#result');
+let score = document.querySelector('#score');
+
+score.textContent = "Human Score: " + humanScore + ", Computer Score: " + computerScore;
+
+buttons.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'Rock':
+            // console.log('Rock');
+            result.textContent = playRound('Rock', getComputerChoice());
+            break;
+        case 'Paper':
+            // console.log('Paper');
+            result.textContent = playRound('Paper', getComputerChoice());
+            break;
+        case 'Scissors':
+            // console.log('Scissors');
+            result.textContent = playRound('Scissors', getComputerChoice());
+            break;
+    }
+})
