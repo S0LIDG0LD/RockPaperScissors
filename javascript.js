@@ -31,9 +31,6 @@ function getHumanChoice() {
 
 const ROUNDS_OF_PLAY = 5;
 
-let computerChoice;
-let humanChoice;
-
 /* 4. Keep track of Player Score using variables. */
 let humanScore = 0;
 let computerScore = 0;
@@ -46,10 +43,10 @@ for (i = 0; i < ROUNDS_OF_PLAY; i++) {
 
     console.log("Round: " + (i + 1))
 
-    computerChoice = getComputerChoice();
+    const computerChoice = getComputerChoice();
     console.log("CC " + computerChoice);
 
-    humanChoice = getHumanChoice();
+    const humanChoice = getHumanChoice();
     console.log("HC " + humanChoice);
 
     /* 5. Write the logic and play a single round. */
