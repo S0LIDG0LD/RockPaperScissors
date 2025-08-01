@@ -5,12 +5,14 @@
 /* 2. Create function getComputeChoice that will randomly return Rock, Paper, Scissor. DONE! */
 
 function getComputerChoice() {
-        switch (Math.floor(Math.random() * 3)) {
-            case 0 : return "Rock";
-            case 1 : return "Paper";
-            case 2 : return "Scissors";
-        }
-    };
+    switch (Math.floor(Math.random() * 3)) {
+        case 0 : return "Rock";
+        case 1 : return "Paper";
+        case 2 : return "Scissors";
+    }
+};
+
+/* console.log("Test Computer Choice: " + getComputerChoice()); */
 
 /* 3. Create function getHumanChoice that will return one of the valid inputs from user. */
 
@@ -18,7 +20,8 @@ function getHumanChoice() {
 
     while (1) {
     
-        let humanInput = String(prompt("Round " + (i + 1) + ": Please choose Rock, Paper or Scissors: "));
+        /* let humanInput = String(prompt("Round " + (i + 1) + ": Please choose Rock, Paper or Scissors: ")); */
+        let humanInput = String(prompt("Please choose Rock, Paper or Scissors: "));
 
         switch (humanInput.toLowerCase()) {
             case "rock" : return "Rock";
@@ -29,27 +32,19 @@ function getHumanChoice() {
     }
 };
 
-const ROUNDS_OF_PLAY = 5;
+/* console.log("Test Human Choice: " + getHumanChoice()); */
 
 /* 4. Keep track of Player Score using variables. */
+
 let humanScore = 0;
 let computerScore = 0;
 
 console.log("Human Score: " + humanScore);
 console.log("Computer Score: " + computerScore);
 
-/* 6. Write the logic and play 5 rounds. */
-for (i = 0; i < ROUNDS_OF_PLAY; i++) {
+/* 5. Write the logic and play a single round. */
 
-    console.log("Round: " + (i + 1))
-
-    const computerChoice = getComputerChoice();
-    console.log("CC " + computerChoice);
-
-    const humanChoice = getHumanChoice();
-    console.log("HC " + humanChoice);
-
-    /* 5. Write the logic and play a single round. */
+function playRound(humanChoice, computerChoice) {
 
     if (humanChoice !== computerChoice) {
         if (humanChoice === "Rock") {
@@ -81,6 +76,28 @@ for (i = 0; i < ROUNDS_OF_PLAY; i++) {
         "I picked " + computerChoice + ", YOU WON!") : (
         "I picked " + computerChoice + ", YOU LOOSE!")
         );
+    } else if (humanChoice === computerChoice) {
+        alert("AAAARGHH! We both picked " + humanChoice); 
+    }
+};
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+console.log("computerSelection: " + computerSelection);
+console.log("humanSelection: " + humanSelection);
+
+playRound(humanSelection, computerSelection);
+
+/* 6. Write the logic and play 5 rounds. */
+/* 
+const ROUNDS_OF_PLAY = 5;
+
+for (i = 0; i < ROUNDS_OF_PLAY; i++) {
+
+    console.log("Round: " + (i + 1))
+
+        
 
         alert("Human Score: " + humanScore + ", Computer Score: " + computerScore);
 
@@ -90,11 +107,6 @@ for (i = 0; i < ROUNDS_OF_PLAY; i++) {
         if (humanScore > 2 || computerScore > 2) {
             break;
         }
-
-    } else if (humanChoice === computerChoice) {
-        i--
-        alert("AAAARGHH! We both picked " + computerChoice); 
-    }
 }
 
 if (humanScore > computerScore) {
@@ -102,5 +114,4 @@ if (humanScore > computerScore) {
 } else {
         alert("GAME OVER, I WON!");
 };
-
-
+ */
